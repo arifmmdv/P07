@@ -1,0 +1,105 @@
+<html>
+<head>
+  <style type="text/css">
+      div{
+        width: 300px;
+        float: left;
+        margin-right: 30px;
+      }
+  </style>
+  <script>
+  window.onload=function() {
+
+    var cl = document.getElementsByClassName("canvas");
+    for(var i = 0; i < cl.length; i++) {
+        cl[i].onmouseover = function() {
+           this.parentNode.style.backgroundColor = "#ff0000";
+        }
+        cl[i].onmouseout = function() {
+          this.parentNode.style.backgroundColor = "#fff";
+        }
+    }
+
+    // Rectangle
+    r = document.getElementById("rect");
+    var rect = r.getContext('2d');
+
+    rect.fillStyle="blue";
+    rect.fillRect(0,0,100,20);
+    rect.stroke();
+
+    // line
+    l = document.getElementById("line");
+    var line = l.getContext('2d');
+    line.beginPath();
+    line.moveTo(0, 0);
+    line.lineTo(300, 150);
+    line.stroke();
+
+    // polyline
+    pl = document.getElementById("pline");
+    var pline = pl.getContext('2d');
+    pline.beginPath();
+    pline.moveTo(20,20);
+    pline.lineTo(20,50);
+    pline.lineTo(70,100);
+    pline.lineTo(90,100);
+    pline.stroke();
+
+    // circle
+    var c = document.getElementById("circle");
+    var circle = c.getContext("2d");
+    circle.beginPath();
+    circle.arc(100, 75, 50, 0, 2 * Math.PI);
+    circle.fillStyle = "green";
+    circle.fill();
+    circle.stroke();
+
+    // ellipse
+    e = document.getElementById("ellipse");
+    var ellipse = e.getContext('2d');
+    ellipse.beginPath();
+    ellipse.ellipse(100, 100, 50, 75, 45 * Math.PI/180, 0, 2 * Math.PI);
+    ellipse.stroke();
+    ellipse.moveTo(0, 200);
+    ellipse.stroke();
+
+    // polygon
+    pg = document.getElementById("pgon");
+    var pgon = pg.getContext('2d');
+
+    pgon.beginPath();
+    pgon.moveTo(20,20);
+    pgon.lineTo(20,100);
+    pgon.lineTo(70,100);
+    pgon.closePath();
+    pgon.stroke();
+  }
+</script>
+</head>
+<h1>Student ID</h1>
+<div>
+  Rectangle
+  <canvas id="rect" class="canvas"></canvas>
+</div>
+<div>
+  Circle
+  <canvas id="circle" class="canvas"></canvas>
+</div>
+<div>
+  <canvas id="line" class="canvas"></canvas> <br>
+  Line
+</div>
+<div>
+  <canvas id="pgon" class="canvas"></canvas> <br>
+  Polygon
+</div>
+<div>
+  <canvas id="ellipse" class="canvas"></canvas> <br>
+  Ellipse
+</div>
+<div>
+  <canvas id="pline" class="canvas"></canvas> <br>
+  Polyline
+</div>
+</html>
